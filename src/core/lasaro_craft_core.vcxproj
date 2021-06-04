@@ -382,7 +382,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <CopyFileToFolders Include="resources\texture_default.png">
+    <CopyFileToFolders Include="..\resources\texture_default.png">
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)\resources</DestinationFolders>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)\resources</DestinationFolders>
       <DestinationFolders Condition="'$(Configuration)|$(Platform)'=='Release.DLL|Win32'">$(OutDir)\resources</DestinationFolders>
