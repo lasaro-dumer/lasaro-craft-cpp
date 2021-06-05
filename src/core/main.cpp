@@ -52,8 +52,21 @@ int main()
 
     Voxel* v1 = new Voxel(texturePack, { 1.0f, 1.0f, 1.0f });
     Voxel* v2 = new Voxel(texturePack, { 1.0f, 2.0f, 1.0f });
+    const int chunkSize = 10;
+    Voxel* voxels[chunkSize][chunkSize][chunkSize];
 
-    SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
+    for (int x = 0; x < chunkSize; x++)
+    {
+        for (int y = 0; y < chunkSize; y++)
+        {
+            for (int z = 0; z < chunkSize; z++)
+            {
+                voxels[x][y][z] = new Voxel(texturePack, { (float)x, (float)y, (float)z });
+            }
+        }
+    }
+
+    SetTargetFPS(120);               // Set our game to run at 120 frames-per-second
     //--------------------------------------------------------------------------------------
 
     // Main game loop
@@ -87,8 +100,19 @@ int main()
             DrawAxisTarget(camera);
             //DrawVoxel(texturePackData, texturePack->GetTextureFrame(4.0f, 5.0f), voxelPosition, 1.0f, 1.0f, 1.0f, voxelFaces, WHITE);
             //DrawCubeWires(voxelPosition, verticesLength, verticesLength, verticesLength, BLACK);
-            v1->Draw(voxelFaces);
-            v2->Draw(voxelFaces);
+            //v1->Draw(voxelFaces);
+            //v2->Draw(voxelFaces);
+
+            for (int x = 0; x < chunkSize; x++)
+            {
+                for (int y = 0; y < chunkSize; y++)
+                {
+                    for (int z = 0; z < chunkSize; z++)
+                    {
+                        voxels[x][y][z]->Draw(voxelFaces);
+                    }
+                }
+            }
             // DrawCube(cubePosition, verticesLength, verticesLength, verticesLength, RED);
             // DrawCubeWires(cubePosition, verticesLength, verticesLength, verticesLength, MAROON);
             // DrawCube(cubePositionGreen, verticesLength, verticesLength, verticesLength, GREEN);
