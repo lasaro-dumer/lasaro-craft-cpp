@@ -5,16 +5,16 @@
 void DrawAxisTarget(Camera camera)
 {
     // Center - BLACK
-    DrawSphere((Vector3) { camera.target.x, camera.target.y, camera.target.z }, 0.05f, BLACK);
+    DrawSphere({ camera.target.x, camera.target.y, camera.target.z }, 0.05f, BLACK);
     // X-axis - RED
-    DrawLine3D((Vector3) { camera.target.x - 1.0f, camera.target.y, camera.target.z }, (Vector3) { camera.target.x + 1.0f, camera.target.y, camera.target.z }, RED);
-    DrawSphere((Vector3) { camera.target.x + 1.0f, camera.target.y, camera.target.z }, 0.05f, RED);
+    DrawLine3D({ camera.target.x - 1.0f, camera.target.y, camera.target.z }, { camera.target.x + 1.0f, camera.target.y, camera.target.z }, RED);
+    DrawSphere({ camera.target.x + 1.0f, camera.target.y, camera.target.z }, 0.05f, RED);
     // Y-axis - GREEN
-    DrawLine3D((Vector3) { camera.target.x, camera.target.y - 1.0f, camera.target.z }, (Vector3) { camera.target.x, camera.target.y + 1.0f, camera.target.z }, GREEN);
-    DrawSphere((Vector3) { camera.target.x, camera.target.y + 1.0f, camera.target.z }, 0.05f, GREEN);
+    DrawLine3D({ camera.target.x, camera.target.y - 1.0f, camera.target.z }, { camera.target.x, camera.target.y + 1.0f, camera.target.z }, GREEN);
+    DrawSphere({ camera.target.x, camera.target.y + 1.0f, camera.target.z }, 0.05f, GREEN);
     // Z-axis - BLUE
-    DrawLine3D((Vector3) { camera.target.x, camera.target.y, camera.target.z - 1.0f }, (Vector3) { camera.target.x, camera.target.y, camera.target.z + 1.0f }, BLUE);
-    DrawSphere((Vector3) { camera.target.x, camera.target.y, camera.target.z + 1.0f }, 0.05f, BLUE);
+    DrawLine3D({ camera.target.x, camera.target.y, camera.target.z - 1.0f }, { camera.target.x, camera.target.y, camera.target.z + 1.0f }, BLUE);
+    DrawSphere({ camera.target.x, camera.target.y, camera.target.z + 1.0f }, 0.05f, BLUE);
 }
 
 int main()
@@ -33,9 +33,9 @@ int main()
     Rectangle frameRec = {texWidth * 1.0f / 12, texHeight * 1.0f / 8, texWidth / 12, texHeight / 8};
 
     Camera camera = { 0 };
-    camera.position = (Vector3){ 10.0f, 10.0f, 8.0f };
-    camera.target = (Vector3){ 0.0f, 0.0f, 0.0f };
-    camera.up = (Vector3){ 0.0f, 1.0f, 0.0f };
+    camera.position = { 10.0f, 10.0f, 8.0f };
+    camera.target = { 0.0f, 0.0f, 0.0f };
+    camera.up = { 0.0f, 1.0f, 0.0f };
     camera.fovy = 60.0f;
     camera.projection = CAMERA_PERSPECTIVE;
 
