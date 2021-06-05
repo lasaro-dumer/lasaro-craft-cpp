@@ -375,6 +375,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TexturePack.cpp" />
     <ClCompile Include="Voxel.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -396,6 +397,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
+    <ClInclude Include="TexturePack.hpp" />
     <ClInclude Include="Voxel.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

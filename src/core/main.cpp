@@ -1,6 +1,7 @@
 #include "raylib.h"
 #include "rlgl.h"
 #include "main.h"
+#include "TexturePack.hpp"
 
 void DrawAxisTarget(Camera camera)
 {
@@ -27,10 +28,8 @@ int main()
     InitWindow(screenWidth, screenHeight, "raylib");
 
     // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
-    Texture2D texturePack = LoadTexture("resources/texture_default.png"); // Texture loading
-    float texWidth = (float)texturePack.width;
-    float texHeight = (float)texturePack.height;
-    Rectangle frameRec = {texWidth * 1.0f / 12, texHeight * 1.0f / 8, texWidth / 12, texHeight / 8};
+    Texture2D texturePackData = LoadTexture("resources/texture_default.png"); // Texture loading
+    TexturePack* texturePack = new TexturePack(texturePackData, 12, 8);
 
     Camera camera = { 0 };
     camera.position = { 10.0f, 10.0f, 8.0f };
@@ -81,7 +80,7 @@ int main()
             BeginMode3D(camera);
 
             DrawAxisTarget(camera);
-            DrawVoxel(texturePack, frameRec, voxelPosition, 1.0f, 1.0f, 1.0f, voxelFaces, WHITE);
+            DrawVoxel(texturePackData, texturePack->GetTextureFrame(4.0f, 5.0f), voxelPosition, 1.0f, 1.0f, 1.0f, voxelFaces, WHITE);
             DrawCubeWires(voxelPosition, verticesLength, verticesLength, verticesLength, BLACK);
             // DrawCube(cubePosition, verticesLength, verticesLength, verticesLength, RED);
             // DrawCubeWires(cubePosition, verticesLength, verticesLength, verticesLength, MAROON);
