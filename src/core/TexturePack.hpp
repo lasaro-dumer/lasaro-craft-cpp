@@ -5,8 +5,8 @@ public:
 	TexturePack(Texture2D textureData, float textureColumns, float textureRows);
 	~TexturePack();
 	Rectangle GetTextureFrame(float x, float y);
-private:
 	Texture2D data;
+private:
 	float cols;
 	float rows;
 	float dataWidth;

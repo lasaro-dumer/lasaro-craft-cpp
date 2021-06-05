@@ -2,6 +2,7 @@
 #include "rlgl.h"
 #include "main.h"
 #include "TexturePack.hpp"
+#include "Voxel.hpp"
 
 void DrawAxisTarget(Camera camera)
 {
@@ -46,8 +47,12 @@ int main()
     Vector3 cubePositionBlack = {0.0f, 2.0f, 0.0f};
     float verticesLength = 1.0f;
     float cameraMovement = 0.1f;
-    Vector3 voxelPosition = {1.0f, 1.0f, 1.0f};
+    //Vector3 voxelPosition = {1.0f, 1.0f, 1.0f};
     int voxelFaces[6] = {1, 1, 1, 1, 1, 1};
+
+    Voxel* v1 = new Voxel(texturePack, { 1.0f, 1.0f, 1.0f });
+    Voxel* v2 = new Voxel(texturePack, { 1.0f, 2.0f, 1.0f });
+
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
 
@@ -80,8 +85,10 @@ int main()
             BeginMode3D(camera);
 
             DrawAxisTarget(camera);
-            DrawVoxel(texturePackData, texturePack->GetTextureFrame(4.0f, 5.0f), voxelPosition, 1.0f, 1.0f, 1.0f, voxelFaces, WHITE);
-            DrawCubeWires(voxelPosition, verticesLength, verticesLength, verticesLength, BLACK);
+            //DrawVoxel(texturePackData, texturePack->GetTextureFrame(4.0f, 5.0f), voxelPosition, 1.0f, 1.0f, 1.0f, voxelFaces, WHITE);
+            //DrawCubeWires(voxelPosition, verticesLength, verticesLength, verticesLength, BLACK);
+            v1->Draw(voxelFaces);
+            v2->Draw(voxelFaces);
             // DrawCube(cubePosition, verticesLength, verticesLength, verticesLength, RED);
             // DrawCubeWires(cubePosition, verticesLength, verticesLength, verticesLength, MAROON);
             // DrawCube(cubePositionGreen, verticesLength, verticesLength, verticesLength, GREEN);
